@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_crop
+      author: Nikita Antropov
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: crop
+      changes:
+        - sqlFile:
+            path: create_table_crop.sql

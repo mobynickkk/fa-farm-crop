@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: farm-bff
+  logging:
+    level: info
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5433/crop}
+    username: ${DATASOURCE_USER:crop_user}
+    password: ${DATASOURCE_PASSWORD:crop_password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:data/changelog.yml
+
+app:
+  name: ${APP_NAME:antropov-farm-crop}
+  jwt:
+    secret: ${JWT_SECRET:Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=}
