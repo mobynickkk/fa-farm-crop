@@ -9,6 +9,9 @@ import lombok.Data;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+/**
+ * Посев
+ */
 @Data
 @Entity
 @Table(name = "sowing")

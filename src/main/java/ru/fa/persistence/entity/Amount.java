@@ -5,10 +5,12 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @Embeddable
 public class Amount {
-    private Integer amount;
+    private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private SowingUnit unit;
 }

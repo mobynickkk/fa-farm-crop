@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.util.UUID;
 
+/**
+ * Поле
+ */
 @Data
 @Entity
 @Table(name = "field")

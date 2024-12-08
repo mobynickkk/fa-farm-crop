@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.util.UUID;
 
+/**
+ * Сельхоз культура
+ */
 @Data
 @Entity
 @Table(name = "crop")
