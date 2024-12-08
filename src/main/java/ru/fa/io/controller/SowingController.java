@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.fa.io.dto.SowingDto;
 import ru.fa.service.domain.CrudService;
 
-@RestController("/sowing")
+@RestController
+@RequestMapping("/sowing")
 @RequiredArgsConstructor
 public class SowingController {
     private final CrudService<SowingDto> service;

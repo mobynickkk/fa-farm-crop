@@ -16,8 +16,8 @@ public class FieldService implements CrudService<FieldDto> {
     private final FieldMapper fieldMapper;
     private final FieldRepository fieldRepository;
 
-    public FieldDto createOrUpdate(FieldDto fieldDto) {
-        return Optional.of(fieldDto)
+    public FieldDto createOrUpdate(FieldDto dto) {
+        return Optional.of(dto)
                 .map(fieldMapper::toEntity)
                 .map(fieldRepository::save)
                 .map(fieldMapper::toDto)

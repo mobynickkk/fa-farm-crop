@@ -7,6 +7,6 @@ import java.time.OffsetDateTime;
 @Builder(toBuilder = true)
 public record SowingDto(String id,
                         FieldDto field,
-                        CropDto cropDto,
+                        CropDto crop,
                         OffsetDateTime sowingDate,
                         SowingAmountDto amount) { }

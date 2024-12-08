@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.fa.io.dto.CropDto;
 import ru.fa.service.domain.CrudService;
 
-@RestController("/crop")
+@RestController
+@RequestMapping("/crop")
 @RequiredArgsConstructor
 public class CropController {
     private final CrudService<CropDto> service;

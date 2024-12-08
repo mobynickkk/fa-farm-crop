@@ -1,9 +1,6 @@
 package ru.fa.persistence.entity;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.OffsetDateTime;
@@ -18,7 +15,9 @@ import java.util.UUID;
 public class Sowing {
     @Id
     private UUID id;
+    @ManyToOne(fetch = FetchType.EAGER)
     private Field field;
+    @ManyToOne(fetch = FetchType.EAGER)
     private Crop crop;
     private OffsetDateTime sowingDate;
     @Embedded

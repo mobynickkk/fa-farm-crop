@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.fa.io.dto.FieldDto;
 import ru.fa.service.domain.CrudService;
 
-@RestController("/field")
+@RestController
+@RequestMapping("/field")
 @RequiredArgsConstructor
 public class FieldController {
     private final CrudService<FieldDto> service;

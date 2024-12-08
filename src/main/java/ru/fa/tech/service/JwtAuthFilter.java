@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -45,7 +46,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             // Если токен успешно проходит проверку подписи, авторизация считается корректной.
             var userDto = token.map(jwtService::getUserInfo);
             var internalToken = userDto
-                    .map(ExternalSymmetricJwtAuthenticationToken::new)
+                    .map(dto -> new UsernamePasswordAuthenticationToken(
+                            dto.username(),
+                            null,
+                            dto.roles().stream().map(role -> (GrantedAuthority) () -> role).toList()))
                     .orElseThrow(() -> new BadCredentialsException("Не удалось авторизовать пользователя"));
             SecurityContextHolder.getContext().setAuthentication(internalToken);
         } catch (ExpiredJwtException e) {
