@@ -11,3 +11,16 @@ databaseChangeLog:
         - sqlFile:
             path: create_table_field.sql
             relativeToChangelogFile: true
+  - changeSet:
+      id: add_columns_field
+      author: Nikita Antropov
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - columnExists:
+                tableName: field
+                columnName: place
+      changes:
+        - sqlFile:
+            path: add_columns_field.sql
+            relativeToChangelogFile: true

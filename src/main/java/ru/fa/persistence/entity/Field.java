@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 /**
@@ -17,4 +18,6 @@ public class Field {
     @Id
     private UUID id;
     private String name;
+    private String place;
+    private OffsetDateTime acquisitionDate;
 }

@@ -19,3 +19,6 @@ app:
   name: ${APP_NAME:antropov-farm-crop}
   jwt:
     secret: ${JWT_SECRET:Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=}
+
+server:
+  port: 8081
